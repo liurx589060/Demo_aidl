@@ -3,6 +3,7 @@ package com.lrx.appservice;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -28,7 +29,9 @@ public class AidlHelper {
 
     public void invokeClient(Activity activity, IInvokeCallback callback) {
         this.callback = callback;
-        Intent intent = new Intent("com.lrx.demo_aidl.client.aidl");
+        Intent intent = new Intent();
+        intent.setData(Uri.parse("com.lrx.demo_aidl.client://aidl_pay"));
+        intent.setPackage("com.lrx.demo_aidl.client");
         Bundle bundle = new Bundle();
         bundle.putString("packageName",activity.getPackageName());
         intent.putExtras(bundle);

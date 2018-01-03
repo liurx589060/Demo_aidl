@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -67,7 +68,8 @@ public class ClientActivity extends Activity {
     private boolean bindRemoteService() {
         Intent intent = new Intent();
         intent.setPackage(mPackageName);
-        intent.setAction(mPackageName + ".aidl");
+        String data = String.format("%s://aidl_service",mPackageName);
+        intent.setData(Uri.parse(data));
         Log.e("yy","action=" + intent.getAction());
         boolean bindResult = bindService(intent,mServiceConnection, Context.BIND_AUTO_CREATE);
         Log.e("yy","bindResult=" + bindResult);

@@ -9,21 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <!--<activity android:name=".MainActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-                <data android:scheme="aidl_client"/>
-            </intent-filter>
-        </activity>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!--<data android:scheme="aidl_client"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
 
         <activity android:name=".ClientActivity"
             android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="${applicationId}.aidl" />
+            <!--<intent-filter>-->
+                <!--<action android:name="${applicationId}.aidl" />-->
 
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <data android:scheme="${applicationId}"
+                    android:host="aidl_pay"/>
             </intent-filter>
         </activity>
     </application>

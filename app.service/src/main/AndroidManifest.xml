@@ -14,7 +14,9 @@
 
         <service android:name=".AidlService">
             <intent-filter>
-                <action android:name="${applicationId}.aidl"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="${applicationId}"
+                    android:host="aidl_service"/>
             </intent-filter>
         </service>
     </application>
